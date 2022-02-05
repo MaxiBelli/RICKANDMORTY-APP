@@ -15,6 +15,7 @@ const data = async () => {
   console.log("API: ", apiUrl.data.results);
   return apiUrl.data.results;
 };
+
 router.get("/characters", async (req, res) => {
   const name = req.query.name; ///characters?name=...
   const apiCharacters = await data();
