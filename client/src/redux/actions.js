@@ -29,7 +29,21 @@ export function getDetail(id) {
     }
   };
 }
-
+export function getNameCharacters(name) {
+    return async function (dispatch) {
+      try {
+        var json = await axios.get(
+          "http://localhost:3001/characters?name=" + name
+        );
+        return dispatch({
+          type: "GET_NAME_CHARACTERS",
+          payload: json.data,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  }
 export function getNameCharactersForm(name) {
   return async function (dispatch) {
     try {
