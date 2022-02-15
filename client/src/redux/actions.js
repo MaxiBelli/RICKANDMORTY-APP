@@ -3,7 +3,7 @@ import axios from "axios";
 export function getCharacters(page, order, filter) {
   return async function (dispatch) {
     var json = await axios(
-      "http://localhost:3001/character?page=" +
+      "http://localhost:3001/characters?page=" +
         page +
         "&order=" +
         order +
@@ -19,7 +19,7 @@ export function getCharacters(page, order, filter) {
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/character/" + id);
+      var json = await axios.get("http://localhost:3001/characters/" + id);
       return dispatch({
         type: "GET_DETAILS",
         payload: json.data,

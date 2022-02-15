@@ -6,7 +6,7 @@ export default function LandingPage(){
     return(
         <div>
             <h1>Welcome to Rick and Morty App</h1>
-            <Link to="/characters">
+            <Link to="/home">
                 <button>Go!!!</button>
             </Link>
         </div>

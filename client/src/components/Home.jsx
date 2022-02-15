@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from "../redux/actions";
 import CharacterCard from "./CharacterCard";
-
 import SearchBar from "./SearchBar";
 
 //COMIENZA EL COMPONENTE
@@ -60,7 +59,7 @@ export default function Home() {
 
   return (
     <div>
-      <NavLink to="/chapter">Create Chapter </NavLink>
+      <NavLink to="/chapter">Create Chapter</NavLink>
       <h1>RICK AND MORTY</h1>
       <button
         onClick={(e) => {
@@ -75,6 +74,7 @@ export default function Home() {
         <select onChange={(e) => changeFilter(e)}>
           <option value="All">All</option>
           <option value="Alive">Alive</option>
+          <option value="Dead">Dead</option>
           <option value="unknown">Unknown</option>
         </select>
       </div>
@@ -99,7 +99,7 @@ export default function Home() {
       {allCharacters?.map((c) => {
         return (
           <fragment>
-            <NavLink to={"/details/" + c.id}>
+            <NavLink to={"/home/" + c.id}>
               <CharacterCard name={c.name} image={c.image} key={c.id} />
             </NavLink>
           </fragment>
@@ -117,7 +117,7 @@ export default function Home() {
         onClick={(e) => {
           next(e);
         }}
-        disabled={pages <= 6}
+        disabled={allCharacters.length < 6}
       >
         {"Next-->"}
       </button>

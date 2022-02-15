@@ -2,7 +2,7 @@ const { Router } = require("express");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const axios = require("axios"); //importo
-const { Character, Episode, characters_episodes } = require("../db"); //me traigo las tablas de la db
+const { Character, Episode, characters_episodes } = require("../db"); // me traigo las tablas de la db
 const { Op } = require("sequelize"); //traigo de sequelize los operadores que necesite
 
 const router = Router();
@@ -15,6 +15,25 @@ const data = async () => {
   console.log("API: ", apiUrl.data.results);
   return apiUrl.data.results;
 };
+
+// const data = async () => {
+//   var output = [];
+
+//   var page = 1;
+//   var pages = 42;
+
+//   if(page < pages){
+//     for(var i = 1; i <= 42; i++){
+//       var requestURL = await axios.get(
+//         "https://rickandmortyapi.com/api/character?$page=" +
+//           page 
+//       );
+//       var allUrl = output.push(requestURL.data)
+//       const totalCharacters = allUrl.results
+
+//     }
+//     return totalCharacters
+//   }
 
 router.get("/characters", async (req, res) => {
   const name = req.query.name; ///characters?name=...
