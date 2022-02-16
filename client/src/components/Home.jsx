@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCharacters } from "../redux/actions";
 import CharacterCard from "./CharacterCard";
 import SearchBar from "./SearchBar";
+import './styles/rickAndMorty.css'
 
 //COMIENZA EL COMPONENTE
 export default function Home() {
@@ -58,9 +59,14 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div class="container">
       <NavLink to="/chapter">Create Chapter</NavLink>
-      <h1>RICK AND MORTY</h1>
+      <img
+        src="https://occ-0-1068-1723.1.nflxso.net/dnm/api/v6/TsSRXvDuraoJ7apdkH6tsHhf-ZQ/AAAABbtnw6C35mhluezr-K_FiP65TW93xpH0M3S6lKPv50_7eshzc1vosWxE3CxcnJ5-eVYmpcaQyra9yFLzQtsNx4odwYO-GtDDmDU0.png?r=47e"
+        alt="logo"
+        class="logo"
+      ></img>
+      {/* <h1>RICK AND MORTY</h1> */}
       <button
         onClick={(e) => {
           handleClick(e);
@@ -105,22 +111,24 @@ export default function Home() {
           </fragment>
         );
       })}
-      <button
+      <div class="cta">
+      <button class="prev" id="prev"
         onClick={(e) => {
           prev(e);
         }}
         disabled={pages <= 0}
-      >
+      > <i class="fas fa-arrow-left"></i>
         {"<--Prev"}
       </button>
-      <button
+      <button class="next" id="next"
         onClick={(e) => {
           next(e);
         }}
         disabled={allCharacters.length < 6}
-      >
+      > <i class="fas fa-arrow-right"></i>
         {"Next-->"}
       </button>
+      </div>
     </div>
   );
 }
