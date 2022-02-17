@@ -1,0 +1,10 @@
+.button {
+  border-style: dashed;
+  border-color: aliceblue;
+  font-size: 120%;
+  font-weight: bold;
+  color: white;
+  background-color: #47e31e;
+  text-decoration: none;
+  font-family: 'Poppins',sans-serif;
+}
